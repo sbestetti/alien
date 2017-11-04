@@ -19,7 +19,7 @@ def run_game():
         """Main game loop"""
 
         """Events monitor"""
-        gf.check_events()
+        gf.check_events(ship)
 
         """Screen re-drawing"""
         gf.update_screen(screen, ship, ai_settings)
