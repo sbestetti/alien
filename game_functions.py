@@ -8,3 +8,9 @@ def check_events():
         """Event monitor"""
         if event.type == pygame.QUIT:
             sys.exit()
+
+
+def update_screen(screen, ship, ai_settings):
+    screen.fill(ai_settings.bg_color)
+    ship.blitme()
+    pygame.display.flip()

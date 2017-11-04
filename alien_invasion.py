@@ -2,7 +2,7 @@
 
 import pygame
 
-import game_functions
+import game_functions as gf
 from settings import Settings
 from ship import Ship
 
@@ -19,13 +19,10 @@ def run_game():
         """Main game loop"""
 
         """Events monitor"""
-        game_functions.check_events()
+        gf.check_events()
 
         """Screen re-drawing"""
-        screen.fill(ai_settings.bg_color)
-        ship.blitme()
-
-        pygame.display.flip()
+        gf.update_screen(screen, ship, ai_settings)
 
 
 run_game()
