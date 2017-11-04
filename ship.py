@@ -20,6 +20,9 @@ class Ship:
 
         self.center = float(self.rect.centerx)
 
+        """Half the ship rectangle size used to limit lateral movement"""
+        self.half_size = float(self.rect[2] / 2)
+
         self.moving_right = False
         self.moving_left = False
 
@@ -28,8 +31,8 @@ class Ship:
         self.screen.blit(self.image, self.rect)
 
     def update(self):
-        if self.moving_right:
+        if self.moving_right and self.center < (self.screen_rect.right - self.half_size):
             self.center += self.ai_settings.ship_speed_factor
-        elif self.moving_left:
+        elif self.moving_left and self.center > self.half_size:
             self.center -= self.ai_settings.ship_speed_factor
         self.rect.centerx = self.center
