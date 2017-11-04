@@ -1,8 +1,8 @@
 """Alien invasion game"""
 
-import sys
 import pygame
 
+import game_functions
 from settings import Settings
 from ship import Ship
 
@@ -18,10 +18,8 @@ def run_game():
     while True:
         """Main game loop"""
 
-        for event in pygame.event.get():
-            """Event monitor"""
-            if event.type == pygame.QUIT:
-                sys.exit()
+        """Events monitor"""
+        game_functions.check_events()
 
         """Screen re-drawing"""
         screen.fill(ai_settings.bg_color)
