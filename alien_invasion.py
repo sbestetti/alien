@@ -25,6 +25,12 @@ def run_game():
         ship.update()
         bullets.update()
 
+        """Bullet cleanup"""
+        for bullet in bullets.copy():
+            if bullet.rect.bottom <= 0:
+                bullets.remove(bullet)
+
+
         """Screen re-drawing"""
         gf.update_screen(ai_settings, screen, ship, bullets)
 
